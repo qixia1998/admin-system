@@ -11,9 +11,9 @@ db:
   dialects: mysql
   host: 127.0.0.1
   port: 3306
-  db: admin-go-api
+  db: admin-api
   username: root
-  password: root
+  password: 12345678
   charset: utf8
   # 最大空闲数
   maxIdle: 50
