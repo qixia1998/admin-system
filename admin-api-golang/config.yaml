@@ -1,6 +1,6 @@
 # 项目启动端口
 server:
-  address: :2002
+  address: :2000
   # debug模式
   model: debug
   # release模式
