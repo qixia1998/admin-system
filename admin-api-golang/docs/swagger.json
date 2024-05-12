@@ -210,6 +210,164 @@
                 }
             }
         },
+        "/api/menu/add": {
+            "post": {
+                "description": "新增菜单接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "新增菜单接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SysMenu"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/menu/delete": {
+            "delete": {
+                "description": "根据id删除菜单接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "根据id删除菜单接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SysMenuIdDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/menu/info": {
+            "get": {
+                "description": "根据id查询菜单",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "根据id查询菜单",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "Id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/menu/list": {
+            "get": {
+                "description": "查询菜单列表",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "查询菜单列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "菜单名称",
+                        "name": "menuName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "菜单状态",
+                        "name": "menuStatus",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/menu/update": {
+            "put": {
+                "description": "修改菜单接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改菜单接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SysMenu"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/menu/vo/list": {
+            "get": {
+                "description": "查询新增选项列表接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "查询新增选项列表接口",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
         "/api/post/add": {
             "post": {
                 "description": "新增岗位接口",
@@ -447,9 +605,294 @@
                     }
                 }
             }
+        },
+        "/api/role/add": {
+            "post": {
+                "description": "新增角色接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "新增角色接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.AddSysRoleDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/assignPermissions": {
+            "put": {
+                "description": "分配权限接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "分配权限接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.RoleMenu"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/delete": {
+            "delete": {
+                "description": "根据id删除角色接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "根据id删除角色接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.SysRoleIdDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/info": {
+            "get": {
+                "description": "根据id查询角色接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "根据id查询角色接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "Id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/list": {
+            "get": {
+                "description": "分页查询角色列表接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "分页查询角色列表接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "分页数",
+                        "name": "pageNum",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "角色名称",
+                        "name": "roleName",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "帐号启用状态：1-\u003e启用,2-\u003e禁用",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "开始时间",
+                        "name": "beginTime",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "结束时间",
+                        "name": "endTime",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/update": {
+            "put": {
+                "description": "修改角色",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改角色",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.UpdateSysRoleDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/updateStatus": {
+            "put": {
+                "description": "角色状态启用/停用接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "角色状态启用/停用接口",
+                "parameters": [
+                    {
+                        "description": "data",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.UpdateSysRoleStatusDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/vo/idList": {
+            "get": {
+                "description": "根据角色id查询菜单数据接口",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "根据角色id查询菜单数据接口",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "Id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role/vo/list": {
+            "get": {
+                "description": "角色下拉列表",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "角色下拉列表",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.Result"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
+        "entity.AddSysRoleDto": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "roleKey": {
+                    "description": "角色key",
+                    "type": "string"
+                },
+                "roleName": {
+                    "description": "角色名称",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "状态：1-\u003e启用,2-\u003e禁用",
+                    "type": "integer"
+                }
+            }
+        },
         "entity.DelSysPostDto": {
             "type": "object",
             "properties": {
@@ -488,6 +931,26 @@
                 "username": {
                     "description": "账号",
                     "type": "string"
+                }
+            }
+        },
+        "entity.RoleMenu": {
+            "type": "object",
+            "required": [
+                "id",
+                "menuIds"
+            ],
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "menuIds": {
+                    "description": "菜单id列表",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 }
             }
         },
@@ -540,6 +1003,71 @@
                 }
             }
         },
+        "entity.SysMenu": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "description": "子集",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/entity.SysMenu"
+                    }
+                },
+                "createTime": {
+                    "description": "创建时间",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/util.HTime"
+                        }
+                    ]
+                },
+                "icon": {
+                    "description": "菜单图标",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "menuName": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "menuStatus": {
+                    "description": "启用状态；1-\u003e禁用；2-\u003e启用",
+                    "type": "integer"
+                },
+                "menuType": {
+                    "description": "菜单类型：1-\u003e目录；2-\u003e菜单；3-\u003e按钮",
+                    "type": "integer"
+                },
+                "parentId": {
+                    "description": "父菜单id",
+                    "type": "integer"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                },
+                "url": {
+                    "description": "菜单url",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "权限值",
+                    "type": "string"
+                }
+            }
+        },
+        "entity.SysMenuIdDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                }
+            }
+        },
         "entity.SysPost": {
             "type": "object",
             "properties": {
@@ -582,6 +1110,15 @@
                 }
             }
         },
+        "entity.SysRoleIdDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                }
+            }
+        },
         "entity.UpdateSysPostStatusDto": {
             "type": "object",
             "properties": {
@@ -591,6 +1128,44 @@
                 },
                 "postStatus": {
                     "description": "状态（1-\u003e正常 2-\u003e停用）",
+                    "type": "integer"
+                }
+            }
+        },
+        "entity.UpdateSysRoleDto": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Id",
+                    "type": "integer"
+                },
+                "roleKey": {
+                    "description": "角色key",
+                    "type": "string"
+                },
+                "roleName": {
+                    "description": "角色名称",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "状态：1-\u003e启用,2-\u003e禁用",
+                    "type": "integer"
+                }
+            }
+        },
+        "entity.UpdateSysRoleStatusDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "状态：1-\u003e启用,2-\u003e禁用",
                     "type": "integer"
                 }
             }
