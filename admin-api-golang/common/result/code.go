@@ -26,6 +26,7 @@ type Codes struct {
 	MissingModificationOfPersonalParameters uint
 	MissingChangePasswordParameter          uint
 	RESETPASSWORD                           uint
+	FILEUPLOADERROR                         uint
 }
 
 // ApiCode 状态码
@@ -51,6 +52,7 @@ var ApiCode = &Codes{
 	MissingModificationOfPersonalParameters: 420,
 	MissingChangePasswordParameter:          421,
 	RESETPASSWORD:                           422,
+	FILEUPLOADERROR:                         427,
 }
 
 // 状态信息
@@ -60,6 +62,7 @@ func init() {
 		ApiCode.FAILED:                                  "失败",
 		ApiCode.NOAUTH:                                  "请求头中的auth为空",
 		ApiCode.AUTHFORMATERROR:                         "请求头中auth格式有误",
+		ApiCode.INVALIDTOKEN:                            "无效的Token或者登录过期,请重新登录！",
 		ApiCode.MissingLoginParameter:                   "缺少登录参数",
 		ApiCode.VerificationCodeHasExpired:              "验证码已失效",
 		ApiCode.CAPTCHANOTTRUE:                          "验证码不正确，请重新输入",
@@ -76,6 +79,7 @@ func init() {
 		ApiCode.MissingModificationOfPersonalParameters: "缺少修改个人参数",
 		ApiCode.MissingChangePasswordParameter:          "缺少修改密码参数",
 		ApiCode.RESETPASSWORD:                           "两次输入的密码不一致，请重新输入",
+		ApiCode.FILEUPLOADERROR:                         "文件上传错误",
 	}
 }
 
