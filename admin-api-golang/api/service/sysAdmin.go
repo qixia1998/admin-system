@@ -65,7 +65,26 @@ func (s SysAdminServiceImpl) Login(c *gin.Context, dto entity.LoginDto) {
 	}
 	// 生成token
 	tokenString, _ := jwt.GenerateTokenByAdmin(sysAdmin)
-	result.Success(c, map[string]interface{}{"token": tokenString, "sysAdmin": sysAdmin})
+	// 左侧菜单列表
+	var leftMenuVo []entity.LeftMenuVo
+	leftMenuList := dao.QueryLeftMenuList(sysAdmin.ID)
+	for _, value := range leftMenuList {
+		menuSvoList := dao.QueryMenuVoList(sysAdmin.ID, value.Id)
+		item := entity.LeftMenuVo{}
+		item.MenuSvoList = menuSvoList
+		item.Id = value.Id
+		item.MenuName = value.MenuName
+		item.Icon = value.Icon
+		item.Url = value.Url
+		leftMenuVo = append(leftMenuVo, item)
+	}
+	// 权限列表
+	permissionList := dao.QueryPermissionList(sysAdmin.ID)
+	var stringList = make([]string, 0)
+	for _, value := range permissionList {
+		stringList = append(stringList, value.Value)
+	}
+	result.Success(c, map[string]interface{}{"token": tokenString, "sysAdmin": sysAdmin, "leftMenuList": leftMenuVo, "permissionList": stringList})
 }
 
 // 修改个人密码
